@@ -261,7 +261,7 @@ export const workExperiences = [
     {
         id: 1,
         name: 'Cox Communications Inc.',
-        pos: 'Incoming Software Engineering Intern',
+        pos: 'Software Engineering Intern',
         duration: 'May 2025-August 2025',
         title: "",
         icon: '/assets/CoxComms.png',
@@ -271,7 +271,7 @@ export const workExperiences = [
         id: 2,
         name: 'Georgia State University',
         pos: 'Undergraduate Research Assistant',
-        duration: 'October 2023-Present',
+        duration: 'October 2023-April 2025',
         title: "At Georgia State University, I developed a front-end website integrated with DataHub, improving data access for 500+ researchers and boosting efficiency by 30%. I deployed a Virtual Machine with Docker, reducing setup time by 40% and enhancing data management for 400+ users. Additionally, I optimized server performance through requirements analysis and improved data organization using SQL.",
         icon: '/assets/gsu.png',
         animation: 'victory',
