@@ -261,12 +261,12 @@ export const workExperiences = [
     {
         id: 1,
         name: 'Cox Communications Inc.',
-        pos: 'Software Engineering Intern',
+        pos: 'Data Analyst Intern',
         duration: 'May 2025-August 2025',
-        title: "",
+        title: "At Cox Communications, I drove Blue/Green (Canary) deployments for the OTA Predictor, enabling safe phased Lambda rollouts with alias-based traffic routing, while standardizing Lambda deployments with version control and multi-region support across Dev/QA. I configured provisioned and reserved concurrency for predictable performance and isolation, and built unit-tested AWS clients for SQS and DynamoDB to strengthen backend data operations. Additionally, I validated end-to-end workflows with EventBridge, Step Functions, and CrossHealth, integrating outputs into S3, Postgres, and Athena, and enabled multi-region OTA Predictor support, achieving 99% deployment reliability and system availability.",
         icon: '/assets/CoxComms.png',
         animation: 'victory',
-    }, //Add picture and description of experiance
+    }, 
     {
         id: 2,
         name: 'Georgia State University',
