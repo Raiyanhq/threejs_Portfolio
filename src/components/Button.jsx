@@ -1,15 +1,13 @@
-const Button = ({ name, isBeam = false, containerClass }) => {
-    return (
-        <button className={`btn ${containerClass}`}>
-            {isBeam && (
-                <span className="relative flex h-3 w-3">
-          <span className="btn-ping"></span>
-          <span className="btn-ping_dot"></span>
-        </span>
-            )}
-            {name}
-        </button>
-    );
-};
-
-export default Button;
+export default function Button({
+  name,
+  isBeam = false,
+  containerClass = '',
+  ...props
+}) {
+  return (
+    <button className={`button button-primary ${containerClass}`} {...props}>
+      {isBeam && <span className="status-dot" />}
+      {name}
+    </button>
+  );
+}
