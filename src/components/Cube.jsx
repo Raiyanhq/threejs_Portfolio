@@ -1,49 +1,28 @@
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
 import { useRef, useState } from 'react';
 import { Float, useGLTF, useTexture } from '@react-three/drei';
-
-const Cube = ({ ...props }) => {
-    const { nodes } = useGLTF('models/cube.glb');
-
-    const texture = useTexture('textures/cube.png');
-
-    const cubeRef = useRef();
-    const [hovered, setHovered] = useState(false);
-
-    useGSAP(() => {
-        gsap
-            .timeline({
-                repeat: -1,
-                repeatDelay: 0.5,
-            })
-            .to(cubeRef.current.rotation, {
-                y: hovered ? '+=2' : `+=${Math.PI * 2}`,
-                x: hovered ? '+=2' : `-=${Math.PI * 2}`,
-                duration: 2.5,
-                stagger: {
-                    each: 0.15,
-                },
-            });
-    });
-
-    return (
-        <Float floatIntensity={5}>
-            <group position={[9, -4, 0]} rotation={[2.6, 0.8, -1.8]} scale={0.80} dispose={null} {...props}>
-                <mesh
-                    ref={cubeRef}
-                    castShadow
-                    receiveShadow
-                    geometry={nodes.Cube.geometry}
-                    material={nodes.Cube.material}
-                    onPointerEnter={() => setHovered(true)}>
-                    <meshMatcapMaterial matcap={texture} toneMapped={false} />
-                </mesh>
-            </group>
-        </Float>
-    );
-};
-
-useGLTF.preload('models/cube.glb');
-
-export default Cube;
+import { useFrame } from '@react-three/fiber';
+export default function Cube({ motion = true, ...props }) {
+  const { nodes } = useGLTF('/models/cube.glb', '/draco/');
+  const texture = useTexture('/textures/cube.png');
+  const ref = useRef();
+  const [hovered, setHovered] = useState(false);
+  useFrame((_, delta) => {
+    if (!motion) return;
+    ref.current.rotation.x += delta * (hovered ? 1.4 : 0.25);
+    ref.current.rotation.y += delta * (hovered ? 1.4 : 0.35);
+  });
+  return (
+    <Float speed={motion ? 1 : 0} floatIntensity={2}>
+      <group rotation={[2.6, 0.8, -1.8]} {...props} dispose={null}>
+        <mesh
+          ref={ref}
+          geometry={nodes.Cube.geometry}
+          onPointerEnter={() => setHovered(true)}
+          onPointerLeave={() => setHovered(false)}
+        >
+          <meshMatcapMaterial matcap={texture} toneMapped={false} />
+        </mesh>
+      </group>
+    </Float>
+  );
+}

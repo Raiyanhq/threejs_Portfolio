@@ -1,109 +1,127 @@
-import { useState } from 'react';
-import Globe from 'react-globe.gl';
-
-import Button from '../components/Button.jsx';
-
-const About = () => {
-    const [hasCopied, setHasCopied] = useState(false);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(' raiyanhaque7@gmail.com');
-        setHasCopied(true);
-
-        setTimeout(() => {
-            setHasCopied(false);
-        }, 2000);
-    };
-
-    return (
-        <section className="c-space my-20" id="about">
-            <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
-                <div className="col-span-1 xl:row-span-3">
-                    <div className="grid-container">
-                        <img src="assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
-
-                        <div>
-                            <p className="grid-headtext">Hi, I’m Raiyan Haque!</p>
-                            <p className="grid-subtext">
-                                Driven computer science student with a passion for AI, data science, and building real-world solutions.
-                                Skilled in full-stack development, machine learning, and solving problems with both code and curiosity!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-span-1 xl:row-span-3">
-                    <div className="grid-container">
-                        <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
-
-                        <div>
-                            <p className="grid-headtext">Tech Stack</p>
-                            <p className="grid-subtext">
-                                I specialize in a diverse range of programming languages, frameworks, and tools, including Python, JavaScript, React.js, Node.js, and Three.js,
-                                enabling me to build robust, scalable, and visually engaging applications tailored to meet user needs.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-span-1 xl:row-span-4">
-                    <div className="grid-container">
-                        <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-                            <Globe
-                                height={326}
-                                width={326}
-                                backgroundColor="rgba(0, 0, 0, 0)"
-                                backgroundImageOpacity={0.5}
-                                showAtmosphere
-                                showGraticules
-                                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                                labelsData={[{ lat: 33.7501, lng: 84.3885, text: "I'm Here!", color: 'white', size: 15 }]}
-                            />
-                        </div>
-                        <div>
-                            <p className="grid-headtext">I’m highly adaptable to different time zones and communication schedules.</p>
-                            <p className="grid-subtext">Based in Atlanta, Georgia, I’m open to remote opportunities and on-site roles across the United States.</p>
-                            <Button name="Contact Me" isBeam containerClass="w-full mt-10" />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="xl:col-span-2 xl:row-span-3">
-                    <div className="grid-container">
-                        <img src="assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
-
-                        <div>
-                            <p className="grid-headtext">My Passion for Coding</p>
-                            <p className="grid-subtext">
-                                I thrive on solving complex problems and bringing ideas to life through code.
-                                Programming is more than just a profession for me—it's a true passion.
-                                I’m driven by the excitement of exploring new technologies and constantly refining my skills to create impactful solutions.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="xl:col-span-1 xl:row-span-2">
-                    <div className="grid-container">
-                        <img
-                            src="assets/grid4.png"
-                            alt="grid-4"
-                            className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
-                        />
-
-                        <div className="space-y-2">
-                            <p className="grid-subtext text-center">Contact me</p>
-                            <div className="copy-container" onClick={handleCopy}>
-                                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
-                                <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">raiyanhaque7@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default About;
+import { lazy, useEffect, useRef, useState } from 'react';
+import SectionHeading from '../components/SectionHeading';
+import SceneBoundary from '../components/SceneBoundary';
+import Icon from '../components/Icon';
+import { contactEmail } from '../constants';
+import Toolkit from '../components/Toolkit';
+import Education from '../components/Education';
+const GlobeScene = lazy(() => import('../components/GlobeScene'));
+export default function About() {
+  const [copyStatus, setCopyStatus] = useState('');
+  const timeout = useRef();
+  useEffect(() => () => clearTimeout(timeout.current), []);
+  const copyEmail = async () => {
+    clearTimeout(timeout.current);
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopyStatus('Email copied!');
+    } catch {
+      setCopyStatus('Copy unavailable. Use the email link.');
+    }
+    timeout.current = setTimeout(() => setCopyStatus(''), 3500);
+  };
+  return (
+    <section id="about" className="section shell">
+      <SectionHeading
+        number="01"
+        eyebrow="THE PERSON BEHIND THE CODE"
+        title={
+          <>
+            Curiosity, put to work<span className="accent">.</span>
+          </>
+        }
+        description="I like understanding how things work. I like building what comes next even more."
+      />
+      <div className="about-grid">
+        <article className="panel about-intro">
+          <span className="card-kicker">A LITTLE ABOUT ME</span>
+          <div className="about-monogram" aria-hidden="true">
+            rh<span>.</span>
+            <div className="monogram-orbit" />
+          </div>
+          <h3>
+            Engineer by practice.
+            <br />
+            Problem solver by nature.
+          </h3>
+          <p>
+            I’m Raiyan Haque, a computer science student at Georgia State
+            University. I build across full-stack development, cloud
+            infrastructure, and applied AI—with a focus on making useful things
+            work reliably.
+          </p>
+          <Education />
+        </article>
+        <Toolkit />
+        <article className="panel about-location">
+          <div className="card-top">
+            <span className="card-kicker">BASED IN ATLANTA</span>
+            <span className="status-dot" />
+          </div>
+          <SceneBoundary
+            className="globe-scene"
+            label="Interactive globe centered on Atlanta"
+          >
+            {(visible) => <GlobeScene visible={visible} />}
+          </SceneBoundary>
+          <div className="location-copy">
+            <h3>
+              Here in Atlanta.
+              <br />
+              Thinking beyond it.
+            </h3>
+            <p>
+              Open to remote opportunities and on-site roles across the United
+              States.
+            </p>
+            <a className="text-link" href="#contact">
+              Let’s connect <Icon />
+            </a>
+          </div>
+        </article>
+        <article className="panel about-approach">
+          <div>
+            <span className="card-kicker">HOW I THINK</span>
+            <h3>
+              Good software is more
+              <br />
+              than working code.
+            </h3>
+            <p>
+              It’s the details: clear interfaces, reliable systems, and a better
+              experience for the person on the other side.
+            </p>
+          </div>
+          <div className="principles">
+            <span>
+              <i>01</i> Understand the problem
+            </span>
+            <span>
+              <i>02</i> Build with intention
+            </span>
+            <span>
+              <i>03</i> Test, learn, improve
+            </span>
+          </div>
+        </article>
+        <article className="panel about-email">
+          <Icon name="mail" size={28} />
+          <span className="card-kicker">START A CONVERSATION</span>
+          <a className="email-link" href={`mailto:${contactEmail}`}>
+            {contactEmail}
+          </a>
+          <button className="copy-button" onClick={copyEmail}>
+            <Icon
+              name={copyStatus === 'Email copied!' ? 'check' : 'copy'}
+              size={16}
+            />
+            Copy email address
+          </button>
+          <span className="copy-status" role="status">
+            {copyStatus}
+          </span>
+        </article>
+      </div>
+    </section>
+  );
+}

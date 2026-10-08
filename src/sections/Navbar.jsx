@@ -1,49 +1,120 @@
-import {useState} from "react";
-import {navLinks} from "../constants/index.js";
+import { useEffect, useRef, useState } from 'react';
+import { navLinks } from '../constants';
+import { useMotion } from '../hooks/useMotion';
+import Icon from '../components/Icon';
 
-const NavItems = () => {
-    return (
-        <ul className="nav-ul">
-            {navLinks.map(({id, href, name}) => (
-                <li key={id} className="nav-li">
-                    <a href={href} className="nav-li_a" onClick={() => {}}>
-                        {name}
-                    </a>
-                </li>
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState('home');
+  const [progress, setProgress] = useState(0);
+  const menuButton = useRef(null);
+  const { motion, toggleMotion } = useMotion();
+  useEffect(() => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? window.scrollY / max : 0);
+      const sections = navLinks
+        .map(({ href }) => document.querySelector(href))
+        .filter(Boolean);
+      const current = sections
+        .filter((section) => section.getBoundingClientRect().top <= 180)
+        .at(-1);
+      if (current) setActive(current.id);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+  useEffect(() => {
+    if (!isOpen) return;
+    const close = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [isOpen]);
+  return (
+    <header className="site-header">
+      <div className="nav-inner shell">
+        <a
+          className="wordmark"
+          href="#home"
+          onClick={() => setIsOpen(false)}
+          aria-label="Raiyan Haque, home"
+        >
+          rh<span>.</span>
+          <span className="wordmark-name">RAIYAN HAQUE</span>
+        </a>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {navLinks
+            .filter((link) => link.id !== 1)
+            .map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                aria-current={
+                  active === link.href.slice(1) ? 'location' : undefined
+                }
+              >
+                {link.name}
+              </a>
             ))}
-        </ul>
-    );
+        </nav>
+        <div className="nav-actions">
+          <button
+            className="icon-button motion-toggle"
+            onClick={toggleMotion}
+            aria-label={motion ? 'Pause animations' : 'Enable animations'}
+            title={motion ? 'Pause animations' : 'Enable animations'}
+          >
+            <Icon name={motion ? 'pause' : 'play'} size={16} />
+          </button>
+          <a className="nav-contact" href="mailto:raiyanhaque7@gmail.com">
+            Let’s talk <Icon size={16} />
+          </a>
+          <button
+            ref={menuButton}
+            className="icon-button mobile-toggle"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
+          >
+            <Icon name={isOpen ? 'close' : 'menu'} />
+          </button>
+        </div>
+      </div>
+      <nav
+        id="mobile-navigation"
+        className="mobile-nav shell"
+        aria-label="Mobile navigation"
+        hidden={!isOpen}
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={link.href}
+            onClick={() => setIsOpen(false)}
+            aria-current={
+              active === link.href.slice(1) ? 'location' : undefined
+            }
+          >
+            {link.name}
+            <Icon />
+          </a>
+        ))}
+      </nav>
+      <div
+        className="reading-progress"
+        style={{ transform: `scaleX(${progress})` }}
+      />
+    </header>
+  );
 }
-const Navbar = () => {
-
-    const [isOpen, setIsOpen] = useState(false)
-
-    const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
-
-    return (
-        <header className = "fixed top-0 left-0 right-0 z-50 bg-black/90">
-            <div className ="max-w-7xl mx-auto">
-                <div className = "flex justify-between items-center py-5 mx-auto c-space">
-                    <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
-                        Raiyan Haque
-                    </a>
-
-                    <button onClick={toggleMenu} className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex" aria-label="Toggle menu" >
-                        <img src={isOpen ? "assets/close.svg" : "assets/menu.svg"} alt="toggle" className= "w-6 h-6" />
-                    </button>
-
-                    <nav className="sm:flex hidden">
-                        <NavItems />
-                    </nav>
-                </div>
-            </div>
-            <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
-                <nav className = 'p-5'>
-                    <NavItems/>
-                </nav>
-
-            </div>
-        </header>
-    )
-}
-export default Navbar

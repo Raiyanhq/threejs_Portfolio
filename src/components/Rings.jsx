@@ -1,60 +1,26 @@
-import { useGSAP } from '@gsap/react';
-import { Center, useTexture } from '@react-three/drei';
-import gsap from 'gsap';
-import { useCallback, useRef } from 'react';
-
-const Rings = ({ position }) => {
-    const refList = useRef([]);
-    const getRef = useCallback((mesh) => {
-        if (mesh && !refList.current.includes(mesh)) {
-            refList.current.push(mesh);
-        }
-    }, []);
-
-    const texture = useTexture('textures/rings.png');
-
-    useGSAP(
-        () => {
-            if (refList.current.length === 0) return;
-
-            refList.current.forEach((r) => {
-                r.position.set(position[0], position[1], position[2]);
-            });
-
-            gsap
-                .timeline({
-                    repeat: -1,
-                    repeatDelay: 0.5,
-                })
-                .to(
-                    refList.current.map((r) => r.rotation),
-                    {
-                        y: `+=${Math.PI * 2}`,
-                        x: `-=${Math.PI * 2}`,
-                        duration: 2.5,
-                        stagger: {
-                            each: 0.15,
-                        },
-                    },
-                );
-        },
-        {
-            dependencies: position,
-        },
-    );
-
-    return (
-        <Center>
-            <group scale={0.5}>
-                {Array.from({ length: 4 }, (_, index) => (
-                    <mesh key={index} ref={getRef}>
-                        <torusGeometry args={[(index + 1) * 0.5, 0.1]}></torusGeometry>
-                        <meshMatcapMaterial matcap={texture} toneMapped={false} />
-                    </mesh>
-                ))}
-            </group>
-        </Center>
-    );
-};
-
-export default Rings;
+import { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+export default function Rings({ position, motion = true }) {
+  const ref = useRef();
+  useFrame((_, delta) => {
+    if (!motion) return;
+    ref.current.children.forEach((ring, i) => {
+      ring.rotation.x += delta * (0.2 + i * 0.08);
+      ring.rotation.y += delta * 0.15;
+    });
+  });
+  return (
+    <group ref={ref} position={position} scale={0.75}>
+      {[0, 1, 2].map((i) => (
+        <mesh key={i} rotation={[0.2 * i, 0.3 * i, 0]}>
+          <torusGeometry args={[(i + 1) * 0.5, 0.025, 12, 48]} />
+          <meshStandardMaterial
+            color="#9ee8ca"
+            metalness={0.5}
+            roughness={0.3}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}

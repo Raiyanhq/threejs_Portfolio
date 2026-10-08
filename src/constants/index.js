@@ -1,297 +1,598 @@
 export const navLinks = [
-    {
-        id: 1,
-        name: 'Home',
-        href: '#home',
-    },
-    {
-        id: 2,
-        name: 'About',
-        href: '#about',
-    },
-    {
-        id: 3,
-        name: 'Work',
-        href: '#work',
-    },
-    {
-        id: 4,
-        name: 'Contact',
-        href: '#contact',
-    },
-];
-
-export const clientReviews = [
-    {
-        id: 1,
-        name: 'Emily Johnson',
-        position: 'Marketing Director at GreenLeaf',
-        img: 'assets/review1.png',
-        review:
-            'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
-    },
-    {
-        id: 2,
-        name: 'Mark Rogers',
-        position: 'Founder of TechGear Shop',
-        img: 'assets/review2.png',
-        review:
-            'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
-    },
-    {
-        id: 3,
-        name: 'John Dohsas',
-        position: 'Project Manager at UrbanTech ',
-        img: 'assets/review3.png',
-        review:
-            'I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
-    },
-    {
-        id: 4,
-        name: 'Ether Smith',
-        position: 'CEO of BrightStar Enterprises',
-        img: 'assets/review4.png',
-        review:
-            'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
-    },
+  {
+    id: 1,
+    name: 'Home',
+    href: '#home',
+  },
+  {
+    id: 2,
+    name: 'About',
+    href: '#about',
+  },
+  {
+    id: 3,
+    name: 'Projects',
+    href: '#work',
+  },
+  { id: 5, name: 'Experience', href: '#experience' },
+  {
+    id: 4,
+    name: 'Contact',
+    href: '#contact',
+  },
 ];
 
 export const myProjects = [
-    {
-        title: 'WellCo - Your Wellness Companion',
-        desc: 'WellCo is an AI-powered wellness assistant designed to support both mental and physical health. It serves as a holistic companion that helps users manage stress, anxiety, and fitness routines through multimodal interactions.',
-        subdesc:
-            'The architecture consists of a React.js front-end that communicates with the Node.js/Express.js back-end through API requests. The back-end handles user authentication, data management, and API integrations. The AI models and Gemini API are accessed via well-defined endpoints to generate responses based on user queries. User inputs are stored securely in Firebase Firestore to maintain context and enable personalized responses in future interactions.',
-        href: 'https://github.com/Raiyanhq/WellCo',
-        texture: '/textures/project/project1.mp4',
-        logo: '/assets/project-logo1.png',
-        logoStyle: {
-            backgroundColor: '#2A1816',
-            border: '0.2px solid #36201D',
-            boxShadow: '0px 0px 60px 0px #AA3C304D',
-        },
-        spotlight: '/assets/spotlight1.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'NodeJS',
-                path: 'assets/nodejs.png',
-            },
-            {
-                id: 3,
-                name: 'JavaScript',
-                path: '/assets/javascript.png',
-            },
-            {
-                id: 4,
-                name: 'GeminiAPI',
-                path: '/assets/geminiapi.png',
-            },
-        ],
+  {
+    id: 'elevest',
+    logo: '/assets/projects/elevest-logo.svg',
+    poster: '/assets/projects/elevest-screen.svg',
+    title: 'Elevest',
+    category: 'Fintech / Interactive web',
+    filter: 'Web',
+    year: '2025 · Financial planning prototype',
+    role: 'Frontend & financial modeling',
+    desc: 'A financial planning prototype that turns everyday transactions into a clearer picture of saving and investing. Explore spare-change round-ups, salary allocation, and interactive growth projections in one dashboard.',
+    subdesc:
+      'Built with React, Vite, and Recharts. Separate components handle transactions, income planning, risk profiles, and a 52-week compound-growth model. ETF comparisons use mock data and assumed returns; the project is a simulation, not a brokerage integration.',
+    href: 'https://github.com/Raiyanhq/elevest-micro-invest-',
+    tags: [
+      {
+        name: 'React',
+        path: '/assets/react.svg',
+      },
+      {
+        name: 'JavaScript',
+        path: '/assets/javascript.png',
+      },
+      {
+        name: 'Recharts',
+      },
+      {
+        name: 'Vite',
+      },
+    ],
+    highlights: [
+      'Transaction round-ups and monthly budgeting',
+      'Salary allocation and risk-profile inputs',
+      'Interactive 52-week investment projections',
+    ],
+    accent: '#b5efd2',
+    overview: {
+      subtitle: 'SMARTER MONEY, CLEARER DECISIONS',
+      steps: ['Transactions', 'Round-ups', 'Projections'],
+      focus: 'Interactive financial modeling',
     },
-    {
-        title: 'PopDaLock',
-        desc: 'Welcome to Pop the Lock! This is a simple yet challenging game developed using Swift. The objective is to unlock the lock by tapping at the right moment.',
-        subdesc:
-            'The PopDaLock App is a mobile application written in Swift that simulates an interactive locking mechanism game. It features responsive gameplay with animations and increasing difficulty, designed for iOS devices.',
-        href: 'https://github.com/Raiyanhq/PopDaLock-app',
-        texture: '/textures/project/project2.mp4',
-        logo: '/assets/project-logo2.png',
-        logoStyle: {
-            backgroundColor: '#13202F',
-            border: '0.2px solid #17293E',
-            boxShadow: '0px 0px 60px 0px #2F6DB54D',
-        },
-        spotlight: '/assets/spotlight2.png',
-        tags: [
-            {
-                id: 1,
-                name: 'Xcode',
-                path: '/assets/xcode.png',
-            },
-            {
-                id: 2,
-                name: 'Swift',
-                path: 'assets/swift.png',
-            },
-            {
-                id: 3,
-                name: 'iOS',
-                path: '/assets/ios.png',
-            },
-            {
-                id: 4,
-                name: 'Apple',
-                path: '/assets/apple.png',
-            },
-        ],
+  },
+  {
+    id: 'wellco',
+    logo: '/assets/projects/wellco-logo.svg',
+    poster: '/assets/projects/wellco-screen.svg',
+    title: 'WellCo',
+    category: 'Applied AI / Full-stack',
+    filter: 'AI & Data',
+    year: '2024 · AIATL',
+    role: 'Full-stack & AI integration',
+    desc: 'An AI-powered wellness companion bringing conversational support and fitness guidance into one experience. Context-aware interactions help users explore routines, goals, and everyday well-being.',
+    subdesc:
+      'The project combines a React interface with Gemini-powered conversational features and Firebase-backed context. The repository includes chatbot components, API experiments, and a Python backend, exploring how an AI assistant can fit into a usable web application.',
+    href: 'https://github.com/Raiyanhq/WellCo',
+    texture: '/textures/project/project1.mp4',
+    tags: [
+      {
+        name: 'React',
+        path: '/assets/react.svg',
+      },
+      {
+        name: 'Python',
+        path: '/assets/python.png',
+      },
+      {
+        name: 'Gemini API',
+        path: '/assets/geminiapi.png',
+      },
+      {
+        name: 'Firebase',
+      },
+    ],
+    highlights: [
+      'Context-aware wellness conversations',
+      'Personalized fitness and well-being guidance',
+      'Frontend, API, and data integration',
+    ],
+    accent: '#b5efd2',
+    overview: {
+      subtitle: 'A LITTLE SUPPORT, EVERY DAY',
+      steps: ['Conversation', 'Context', 'Guidance'],
+      focus: 'AI-powered wellness companion',
     },
-    {
-        title: 'Golapi-Care',
-        desc: 'We\'re trying to identify Mild Cognitive Impairment symptoms among the elderly by identifying and classifying different behavioral and sensor data. Specifically, we\'re using wearable sensor data that is readily available and accessible to everyone.',
-        subdesc:
-            'For the front end, we\'re using HTML, CSS, and JS and for the back end, we\'re using Python. Firstly we\'re authenticating the user and connecting to their main health wearable device by authenticating through Terra API. We then fetch the data using webhooks to our local machine using port forwarding from Terra API. Later we process and clean the data and compare them to the data that\'s from an MCI patient\'s wearable device and try to find patterns.',
-        href: 'https://github.com/Raiyanhq/Golapi-Care',
-        texture: '/textures/project/project3.mp4',
-        logo: '/assets/project-logo3.png',
-        logoStyle: {
-            backgroundColor: '#60f5a1',
-            background:
-                'linear-gradient(0deg, #60F5A150, #60F5A150), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(208, 213, 221, 0.8) 100%)',
-            border: '0.2px solid rgba(208, 213, 221, 1)',
-            boxShadow: '0px 0px 60px 0px rgba(35, 131, 96, 0.3)',
-        },
-        spotlight: '/assets/spotlight3.png',
-        tags: [
-            {
-                id: 1,
-                name: 'Python',
-                path: '/assets/python.png',
-            },
-            {
-                id: 2,
-                name: 'TerraAPI',
-                path: 'assets/terraapi.png',
-            },
-            {
-                id: 3,
-                name: 'JavaScript',
-                path: '/assets/javascript.png',
-            },
-            {
-                id: 4,
-                name: 'Xcode',
-                path: '/assets/xcode.png',
-            },
-        ],
+  },
+  {
+    id: 'focusnflow',
+    logo: '/assets/projects/focusnflow-logo.svg',
+    poster: '/assets/projects/focusnflow-screen.svg',
+    title: 'FocusNFlow',
+    category: 'Mobile / Collaborative planning',
+    filter: 'Mobile',
+    year: '2026 · Team project',
+    role: 'Frontend / UI Lead',
+    desc: 'A mobile study planner for students balancing deadlines, coursework, and group study. A transparent scheduling engine helps organize the week, while shared groups and chat make studying collaborative.',
+    subdesc:
+      'As the team’s Frontend / UI Lead, my role centers on the Flutter experience. The project pairs Dart with Firebase Authentication, Firestore, Storage, and Cloud Messaging. Its rule-based planner weighs deadline urgency, course weight, and estimated effort. The repository documents this as a project in development.',
+    href: 'https://github.com/Raiyanhq/U28_FocusNFlow',
+    tags: [
+      {
+        name: 'Flutter',
+      },
+      {
+        name: 'Dart',
+      },
+      {
+        name: 'Firebase',
+      },
+      {
+        name: 'Firestore',
+      },
+    ],
+    highlights: [
+      'Task prioritization and weekly study planning',
+      'Real-time study groups, chat, and shared sessions',
+      'Frontend/UI leadership on a two-person team',
+    ],
+    accent: '#bac7ff',
+    overview: {
+      subtitle: 'MAKE ROOM FOR WHAT MATTERS',
+      steps: ['Prioritize', 'Plan', 'Collaborate'],
+      focus: 'Student-first mobile experience',
     },
-    {
-        title: 'Flower Project',
-        desc: 'The Flower Project is a simple website that provides information about flowers. It features beautifully styled pages with images and descriptions, offering users a visually appealing way to explore different types of flowers.',
-        subdesc:
-            'Created using HTML and CSS, designed to showcase information about flowers. The project likely includes styled web pages with a responsive layout, integrating visual elements like images and text to create an aesthetically pleasing user experience.',
-        href: 'https://github.com/Raiyanhq/Flower_Project_HTML',
-        texture: '/textures/project/project4.mp4',
-        logo: '/assets/project-logo4.png',
-        logoStyle: {
-            backgroundColor: '#0E1F38',
-            border: '0.2px solid #0E2D58',
-            boxShadow: '0px 0px 60px 0px #2F67B64D',
-        },
-        spotlight: '/assets/spotlight4.png',
-        tags: [
-            {
-                id: 1,
-                name: 'HTML',
-                path: '/assets/html.png',
-            },
-            {
-                id: 2,
-                name: 'CSS',
-                path: 'assets/css.png',
-            },
-            {
-                id: 3,
-                name: '',
-                path: '',
-            },
-            {
-                id: 4,
-                name: '',
-                path: '',
-            },
-        ],
+  },
+  {
+    id: 'noteit',
+    logo: '/assets/projects/noteit-logo.svg',
+    poster: '/assets/projects/noteit-screen.svg',
+    title: 'Note!t',
+    category: 'AI / Learning & productivity',
+    filter: 'AI & Data',
+    year: '2024 · UGAHacks',
+    role: 'Full-stack learning tools',
+    desc: 'A hackathon learning tool that brings AI-assisted questions, text extraction, and PDF annotation into a study workflow. Built around making information easier to work with and revisit.',
+    subdesc:
+      'Pairs a lightweight HTML/CSS interface with Python/Flask services for question answering and text processing. Keras experiments explore learning from question-answer data, alongside OCR and PDF annotation workflows.',
+    href: 'https://github.com/Raiyanhq/Note-t_project',
+    tags: [
+      {
+        name: 'Python',
+        path: '/assets/python.png',
+      },
+      {
+        name: 'Flask',
+      },
+      {
+        name: 'HTML / CSS',
+      },
+      {
+        name: 'NLP',
+      },
+    ],
+    highlights: [
+      'AI-assisted questions and answers',
+      'OCR and PDF annotation workflows',
+      'Python text-processing and web interface prototypes',
+    ],
+    accent: '#f3d0a0',
+    overview: {
+      subtitle: 'TURN INFORMATION INTO UNDERSTANDING',
+      steps: ['Capture', 'Ask', 'Learn'],
+      focus: 'AI-assisted study workflows',
     },
-    {
-        title: 'Rotating Dodecahedron',
-        desc: 'The Three.js Project is a web app that brings 3D graphics to life in your browser. It allows users to interact with 3D models, animations, and scenes, showcasing stunning visuals and smooth rendering right on a webpage.',
-        subdesc:
-            'Web-based application utilizing Three.js, a JavaScript 3D library, to create and render interactive 3D graphics directly in the browser. It employs WebGL for real-time 3D rendering, and may include features like animated objects, custom geometries, textures, and camera controls for an immersive user experience.',
-        href: 'https://github.com/Raiyanhq/three.js-project',
-        texture: '/textures/project/project5.mp4',
-        logo: '/assets/project-logo5.png',
-        logoStyle: {
-            backgroundColor: '#1C1A43',
-            border: '0.2px solid #252262',
-            boxShadow: '0px 0px 60px 0px #635BFF4D',
-        },
-        spotlight: '/assets/spotlight5.png',
-        tags: [
-            {
-                id: 1,
-                name: 'React.js',
-                path: '/assets/react.svg',
-            },
-            {
-                id: 2,
-                name: 'CSS',
-                path: 'assets/css.png',
-            },
-            {
-                id: 3,
-                name: 'NodeJS',
-                path: '/assets/nodejs.png',
-            },
-            {
-                id: 4,
-                name: 'HTML',
-                path: '/assets/html.png',
-            },
-        ],
+  },
+  {
+    id: 'golapi',
+    logo: '/assets/projects/golapi-logo.svg',
+    poster: '/assets/projects/golapi-screen.svg',
+    title: 'Golapi Care',
+    category: 'Machine learning / Health data',
+    filter: 'AI & Data',
+    year: '2023 · HackHarvard',
+    role: 'Data pipelines & machine learning',
+    desc: 'A healthcare research prototype exploring patterns associated with mild cognitive impairment. It connects wearable data with data processing and classification to investigate accessible approaches to early screening.',
+    subdesc:
+      'The project uses Python and a Terra API integration to receive wearable data through Flask webhook endpoints. The prototype explored data from 40+ sources and achieved 65% classification accuracy, with a focus on data preparation, feature extraction, and accessible wearable-data workflows.',
+    href: 'https://github.com/Raiyanhq/Golapi-Care',
+    texture: '/textures/project/project3.mp4',
+    tags: [
+      {
+        name: 'Python',
+        path: '/assets/python.png',
+      },
+      {
+        name: 'Flask',
+      },
+      {
+        name: 'Terra API',
+        path: '/assets/terraapi.png',
+      },
+      {
+        name: 'Machine learning',
+      },
+    ],
+    highlights: [
+      'Wearable data ingestion through Terra webhooks',
+      'Data cleaning and feature extraction',
+      'Prototype classification of cognitive impairment patterns',
+    ],
+    accent: '#f2b5c7',
+    overview: {
+      subtitle: 'FINDING SIGNALS IN EVERYDAY DATA',
+      steps: ['Wearables', 'Features', 'Patterns'],
+      focus: 'Health-data research prototype',
     },
+  },
+  {
+    id: 'popdalock',
+    logo: '/assets/projects/popdalock-logo.svg',
+    poster: '/assets/projects/popdalock-screen.svg',
+    title: 'PopDaLock',
+    category: 'iOS / Game development',
+    filter: 'Mobile',
+    year: '2024 · Native iOS game',
+    role: 'iOS interaction & game logic',
+    desc: 'A timing game with a simple interaction and a deceptively difficult challenge: tap when the rotating marker meets its target. Each completed lock raises the difficulty and rewards precision.',
+    subdesc:
+      'Built in Swift for iOS with Xcode. The game manages rotating dial states, tap timing, level progression, and restart behavior. It explores how animation and immediate feedback can make a minimal interface feel engaging.',
+    href: 'https://github.com/Raiyanhq/PopDaLock-app',
+    texture: '/textures/project/project2.mp4',
+    tags: [
+      {
+        name: 'Swift',
+        path: '/assets/swift.png',
+      },
+      {
+        name: 'iOS',
+        path: '/assets/ios.png',
+      },
+      {
+        name: 'Xcode',
+        path: '/assets/xcode.png',
+      },
+    ],
+    highlights: [
+      'Tap-to-play timing mechanics',
+      'Progressive difficulty and level state',
+      'Animation and immediate interaction feedback',
+    ],
+    accent: '#f5bf91',
+    overview: {
+      subtitle: 'ONE TAP. PERFECT TIMING.',
+      steps: ['Watch', 'Time', 'Unlock'],
+      focus: 'Native mobile interaction',
+    },
+  },
 ];
 
-export const calculateSizes = (isSmall, isMobile, isTablet) => {
-    return {
-        deskScale: isSmall ? 0.05 : isMobile ? 0.06 : 0.065,
-        deskPosition: isMobile ? [0.5, -4.5, 0] : [0.25, -5.5, 0],
-        cubePosition: isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-        reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-        ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-        targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
-    };
-};
+export const moreProjects = [
+  {
+    title: 'Cognitive Memory Game',
+    logo: '/assets/projects/memory-logo.svg',
+    category: 'Python / Pygame',
+    desc: 'A 4×4 card-matching game exploring memory, interaction state, and immediate visual feedback.',
+    href: 'https://github.com/Raiyanhq/Cognitive_Impairment_Game',
+    icon: 'code',
+  },
+  {
+    title: 'This 3D Portfolio',
+    logo: '/assets/projects/portfolio-logo.svg',
+    category: 'React / Three.js',
+    desc: 'An interactive workspace, on-demand project demos, and an animated timeline—all built for the browser.',
+    href: 'https://github.com/Raiyanhq/threejs_Portfolio',
+    icon: 'code',
+  },
+];
+
+export const toolkitCategories = [
+  {
+    id: 'languages',
+    label: 'Languages',
+    caption: 'The building blocks',
+    description:
+      'From application logic and scripting to native and systems programming.',
+    groups: [
+      {
+        label: 'Languages',
+        items: ['Python', 'Java', 'JavaScript', 'C++', 'C#', 'SQL', 'Swift'],
+      },
+      {
+        label: 'Also used in projects',
+        items: ['Dart', 'HTML', 'CSS'],
+      },
+    ],
+  },
+  {
+    id: 'frameworks',
+    label: 'Frameworks',
+    caption: 'From interface to service',
+    description:
+      'Frameworks and technologies for connected applications and maintainable services.',
+    groups: [
+      {
+        label: 'Application development',
+        items: [
+          'React.js',
+          'Node.js',
+          'Spring Boot',
+          'REST APIs',
+          'Microservices',
+          'Firebase',
+        ],
+      },
+      {
+        label: 'Also used in projects',
+        items: ['Flutter', 'Flask', 'Three.js', 'Pygame', 'Recharts'],
+      },
+    ],
+  },
+  {
+    id: 'cloud',
+    label: 'Cloud & DevOps',
+    caption: 'Built to ship',
+    description:
+      'Cloud services, infrastructure, and delivery tools from my engineering internships and projects.',
+    groups: [
+      {
+        label: 'Cloud platforms & AWS services',
+        items: [
+          'AWS',
+          'Azure',
+          'Lambda',
+          'SQS',
+          'DynamoDB',
+          'S3',
+          'Step Functions',
+          'EventBridge',
+          'SageMaker',
+          'API Gateway',
+        ],
+      },
+      {
+        label: 'Infrastructure & delivery',
+        items: [
+          'Docker',
+          'Jenkins',
+          'GitHub Actions',
+          'CI/CD',
+          'Terraform (basic)',
+          'Infrastructure as Code',
+          'Linux',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'data',
+    label: 'Data & AI',
+    caption: 'From data to decisions',
+    description:
+      'Storage, data processing, and AI integrations across my project and internship work.',
+    groups: [
+      {
+        label: 'Databases',
+        items: [
+          'MySQL',
+          'PostgreSQL',
+          'SQLite',
+          'NoSQL',
+          'MongoDB',
+          'DynamoDB',
+          'Firebase Firestore',
+        ],
+      },
+      {
+        label: 'AI & data work',
+        items: [
+          'Anthropic Claude',
+          'Gemini API',
+          'Machine learning',
+          'NLP',
+          'OCR',
+          'Data pipelines',
+          'Athena',
+          'DataHub',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'tools',
+    label: 'Tools',
+    caption: 'The everyday workflow',
+    description:
+      'The editors, collaboration tools, and API clients I use to turn ideas into working software.',
+    groups: [
+      {
+        label: 'Development & collaboration',
+        items: ['Git', 'VS Code', 'Postman', 'Jira', 'Xcode', 'PyCharm'],
+      },
+    ],
+  },
+  {
+    id: 'engineering',
+    label: 'Engineering',
+    caption: 'The thinking behind the code',
+    description:
+      'Principles that guide how I design, build, debug, and improve software.',
+    groups: [
+      {
+        label: 'Foundations & design',
+        items: [
+          'Data Structures & Algorithms',
+          'Object-Oriented Design',
+          'Distributed Systems',
+          'System Design',
+          'API Development',
+        ],
+      },
+      {
+        label: 'Quality & delivery',
+        items: [
+          'Debugging & Testing',
+          'Performance Optimization',
+          'Concurrency',
+          'Agile / Scrum',
+        ],
+      },
+    ],
+  },
+];
 
 export const workExperiences = [
-    {
-        id: 1,
-        name: 'Cox Communications Inc.',
-        pos: 'Data Analyst Intern',
-        duration: 'May 2025-August 2025',
-        title: "At Cox Communications, I drove Blue/Green (Canary) deployments for the OTA Predictor, enabling safe phased Lambda rollouts with alias-based traffic routing, while standardizing Lambda deployments with version control and multi-region support across Dev/QA. I configured provisioned and reserved concurrency for predictable performance and isolation, and built unit-tested AWS clients for SQS and DynamoDB to strengthen backend data operations. Additionally, I validated end-to-end workflows with EventBridge, Step Functions, and CrossHealth, integrating outputs into S3, Postgres, and Athena, and enabled multi-region OTA Predictor support, achieving 99% deployment reliability and system availability.",
-        icon: '/assets/CoxComms.png',
-        animation: 'victory',
-    }, 
-    {
-        id: 2,
-        name: 'Georgia State University',
-        pos: 'Undergraduate Research Assistant',
-        duration: 'October 2023-April 2025',
-        title: "At Georgia State University, I developed a front-end website integrated with DataHub, improving data access for 500+ researchers and boosting efficiency by 30%. I deployed a Virtual Machine with Docker, reducing setup time by 40% and enhancing data management for 400+ users. Additionally, I optimized server performance through requirements analysis and improved data organization using SQL.",
-        icon: '/assets/gsu.png',
-        animation: 'victory',
+  {
+    id: 'cox-2026',
+    group: 'cox',
+    name: 'Cox Communications',
+    pos: 'Software Engineer Intern',
+    badge: 'Return internship',
+    duration: 'May – Aug 2026',
+    tenure: '4 months',
+    employment: 'Internship',
+    location: 'Atlanta, GA · Hybrid',
+    icon: '/assets/CoxComms.png',
+    animation: 'victory',
+    tags: ['Python', 'Anthropic Claude', 'AWS', 'Terraform', 'Jenkins'],
+    highlight: {
+      value: '~80 sec',
+      label: 'Reports for 7 engineering teams',
     },
-    {
-        id: 3,
-        name: 'RocketTech GSU',
-        pos: 'Software Engineer',
-        duration: 'February 2024-Present',
-        title: "At Georgia State University’s Rocket Club, I developed C++ flight control software, integrating the MPU6050 for motion sensing with 98% accuracy and 35% lower latency. I optimized accelerometer data with smoothing algorithms, improving reliability by 40%, and implemented BMP280 sensor data logging for precise temperature and pressure recording. Additionally, I built a real-time wireless data transmission system using nRF24, achieving a 1 Mbps transfer rate with 50% reduced latency.",
-        icon: '/assets/rocket-tech.png',
-        animation: 'clapping',
+    bullets: [
+      'Engineered an AI-powered JIRA reporting agent using Python and Anthropic Claude, generating sprint and release PPTX reports for 7 engineering teams in ~80 seconds.',
+      'Designed a serverless AWS architecture with Lambda, S3, DynamoDB, SageMaker, Step Functions, API Gateway, and SQS for automated data processing and report generation.',
+      'Built a PPTX generation pipeline that transformed JIRA data into KPIs, charts, summaries, and release insights across 7 teams.',
+      'Automated cloud infrastructure and deployments using Terraform and Jenkins CI/CD.',
+      'Executed end-to-end testing across APIs, AWS services, data pipelines, and AI-generated reports to validate workflow reliability and output quality.',
+    ],
+  },
+  {
+    id: 'cox-analyst',
+    group: 'cox',
+    name: 'Cox Communications',
+    pos: 'Data Analyst',
+    badge: 'Part-time',
+    duration: 'Sep 2025 – Jan 2026',
+    tenure: '5 months',
+    employment: 'Part-time',
+    location: 'Atlanta, GA · Hybrid',
+    icon: '/assets/CoxComms.png',
+    animation: 'clapping',
+    tags: [],
+    highlight: {
+      value: '5 months',
+      label: 'Part-time Data Analyst',
     },
-    {
-        id: 4,
-        name: 'Georgia State University',
-        pos: 'Student Assistant (Event Coordinator) ',
-        duration: 'September 2023-Present',
-        title: "As a Student Assistant Event Coordinator at Georgia State University, I help organize graduation events for 8,000+ attendees, manage 1,000+ student records using advanced Excel, improving data accuracy by 20%, and handle phone and email inquiries with professionalism.",
-        icon: '/assets/event-work.png',
-        animation: 'salute',
+    summary:
+      'Continued at Cox Communications in a part-time Data Analyst role after the summer 2025 internship.',
+    bullets: [],
+  },
+  {
+    id: 'cox-2025',
+    group: 'cox',
+    name: 'Cox Communications',
+    pos: 'Data Analyst Intern',
+    duration: 'May – Aug 2025',
+    tenure: '4 months',
+    employment: 'Internship',
+    location: 'Atlanta, GA · Hybrid',
+    icon: '/assets/CoxComms.png',
+    animation: 'salute',
+    tags: [
+      'AWS Lambda',
+      'SQS',
+      'DynamoDB',
+      'Step Functions',
+      'PostgreSQL',
+      'Athena',
+    ],
+    highlight: {
+      value: '99%',
+      label: 'Deployment reliability & system availability',
     },
+    bullets: [
+      'Drove Blue/Green (Canary) deployments for OTA Predictor, enabling safe phased Lambda rollouts with alias-based traffic routing.',
+      'Standardized Lambda deployments with version control and multi-region support across Dev/QA.',
+      'Configured provisioned and reserved concurrency for predictable performance and isolation.',
+      'Built and unit-tested AWS clients for SQS and DynamoDB, strengthening backend data operations.',
+      'Validated end-to-end workflows across EventBridge, Step Functions, and CrossHealth, with outputs in S3, Postgres, and Athena.',
+      'Enabled multi-region OTA Predictor support, achieving 99% deployment reliability and system availability.',
+    ],
+  },
+  {
+    id: 'gsu-events',
+    group: 'gsu-events',
+    name: 'Georgia State University',
+    pos: 'Student Assistant (Event Coordinator)',
+    duration: 'Sep 2023 – May 2025',
+    tenure: '1 year 9 months',
+    employment: 'Part-time',
+    location: 'Atlanta, GA · On-site',
+    icon: '/assets/gsu.png',
+    animation: 'salute',
+    tags: ['Event coordination', 'Student records', 'Communication'],
+    highlight: {
+      value: 'GSU',
+      label: 'Commencement & event support',
+    },
+    bullets: [
+      'Assisted with events handled by the Management office, including commencement.',
+      'Exhibited professionalism when answering and routing phone calls and responding to emails.',
+      'Entered student records into the database.',
+    ],
+  },
+  {
+    id: 'gsu-research',
+    group: 'gsu-research',
+    name: 'Georgia State University College of Arts & Sciences',
+    pos: 'Undergraduate Research Assistant',
+    duration: 'Oct 2023 – Apr 2025',
+    tenure: '1 year 7 months',
+    employment: 'Part-time',
+    location: 'Atlanta, GA',
+    icon: '/assets/gsu.png',
+    animation: 'victory',
+    tags: ['DataHub', 'Docker', 'Virtual machines', 'Data organization'],
+    highlight: {
+      value: 'DataHub',
+      label: 'Making research datasets accessible',
+    },
+    bullets: [
+      'Built a front-end website connected to DataHub to make datasets available to teachers and researchers.',
+      'Created and configured a virtual machine and installed Docker and DataHub.',
+      'Identified the minimum feature set needed for the DataHub server.',
+      'Collected and organized datasets and stored them in DataHub.',
+    ],
+  },
 ];
+
+export const experienceGroups = [
+  {
+    id: 'cox',
+    name: 'Cox Communications',
+    note: 'Now Spectrum',
+    range: '2025 – 2026',
+    icon: '/assets/CoxComms.png',
+    journey: ['Internship', 'Part-time', 'Return internship'],
+  },
+  {
+    id: 'gsu-events',
+    name: 'Georgia State University',
+    note: 'University operations',
+    range: '2023 – 2025',
+    icon: '/assets/gsu.png',
+  },
+  {
+    id: 'gsu-research',
+    name: 'Georgia State University',
+    note: 'College of Arts & Sciences',
+    range: '2023 – 2025',
+    icon: '/assets/gsu.png',
+  },
+];
+
+export const contactEmail = 'raiyanhaque7@gmail.com';
